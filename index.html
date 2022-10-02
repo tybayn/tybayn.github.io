@@ -1,9 +1,156 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- head definitions go here -->
-    </head>
-    <body>
-        Hello, World!
-    </body>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Load pages -->
+    <script src="js/jquery-1.9.1.min.js"></script>   
+    <script> 
+        $(function(){$("#hero").load("pages/home.html")});
+        $(function(){$("#about").load("pages/about.html")});
+        $(function(){$("#skills").load("pages/skills.html")});
+        $(function(){$("#resume").load("pages/resume.html")});
+        $(function(){$("#projects").load("pages/projects.html")});
+    </script> 
+
+    <title>Ty Bayn</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="fonts/phonesoap-fonts.css" />
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/star-background.css" />
+    <link rel="stylesheet" href="css/profile-cards.css" />
+  </head>
+  <body>  
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+      <div class="container">   
+        <div class="tm-next">
+            <a href="#hero" class="tm-navbar-logo"><img src="img/logo-white.png" width="100px"></a>
+        </div>             
+          
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars navbar-toggler-icon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#resume">Resume</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#projects">Projects</a>
+            </li>           
+          </ul>
+        </div>        
+      </div>
+    </nav>
+
+    <div class="tm-next tm-intro-next">
+      <a href="#about" class="text-center tm-down-arrow-link">
+        <i class="arrow white down"></i>
+      </a>
+    </div>  
+
+    <!-- Hero section -->
+    <section id="hero" class="text-white tm-font-big"></section>
+
+    <!-- About -->
+    <section id="about" class="tm-section-pad-top"></section>
+
+    <!-- Skills -->
+    <section id="skills" class="tm-section-pad-top"></section>
+
+    <!-- Resume -->
+    <section id="resume" class="tm-section-pad-top"></section>
+
+    <!-- Projects -->
+    <section id="projects" class="tm-section-pad-top"></section>
+
+    <!-- Animation Control -->
+    <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>     
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script>
+
+      window.onscroll = function() {
+        var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        document.getElementById('stars').style.marginTop = (-1 * (scrollTop/4)) + "px";
+        document.getElementById('stars2').style.marginTop = (-1 * (scrollTop/3)) + "px";
+        document.getElementById('logo-container').style.marginTop= ((scrollTop/3)) + "px";
+        document.getElementById('stars3').style.marginTop = (-1 * (scrollTop/2)) + "px";
+      }
+
+    //   window.onmousemove = function(event){
+    //     var x = event.clientX;
+    //     var y = event.clientY; 
+    //     var win_x = window.innerWidth / 2;
+    //     var win_y = window.innerHeight / 2;
+        
+    //     document.getElementById('stars').style.marginTop = (-1 * ((y - win_y)/12)) + "px";
+    //     document.getElementById('stars2').style.marginTop = (-1 * ((y - win_y)/8)) + "px";
+    //     document.getElementById('stars3').style.marginTop = (-1 * ((y - win_y)/4)) + "px";
+    //     document.getElementById('stars').style.marginLeft = (-1 * ((x - win_x)/12)) + "px";
+    //     document.getElementById('stars2').style.marginLeft = (-1 * ((x - win_x)/8)) + "px";
+    //     document.getElementById('stars3').style.marginLeft = (-1 * ((x - win_x)/4)) + "px";
+
+    //   }
+      
+      $(function(){
+        // Detect window scroll and update navbar
+        $(window).scroll(function(e){          
+          if($(document).scrollTop() > 120) {
+            $('.tm-navbar').addClass("scroll");
+            $('.tm-navbar-logo').addClass("scroll");
+          } else {
+            $('.tm-navbar').removeClass("scroll");
+            $('.tm-navbar-logo').removeClass("scroll");
+          }
+        });
+        
+        // Close mobile menu after click 
+        $('#tmNav a').on('click', function(){
+          $('.navbar-collapse').removeClass('show'); 
+        })
+
+        // Scroll to corresponding section with animation
+        $('#tmNav').singlePageNav();        
+        
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 400, function(){
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+
+        // Pop up
+        $('.tm-gallery').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          gallery: { enabled: true }
+        });
+
+       
+      });
+    </script>
+  </body>
 </html>
