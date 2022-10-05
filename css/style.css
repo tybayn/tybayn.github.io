@@ -90,7 +90,27 @@ a.project_button{
   transition: 0.5s;
 }
 
-a.project_button:hover{
+a.resume_button{
+  background-color: rgb(175, 175, 175);
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+  color: initial;
+
+  padding:10px;
+  border:None;
+  border-radius: 10px;
+  width: 20%; 
+  min-width: 150px; 
+  text-align: center; 
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+a.project_button:hover , a.resume_button:hover{
   background: linear-gradient(
     217deg,
     rgba(255, 200, 200, 1),
