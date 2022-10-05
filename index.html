@@ -18,6 +18,7 @@
 
     <title>Ty Bayn</title>
     <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="fonts/phonesoap-fonts.css" />
     <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -93,20 +94,15 @@
         document.getElementById('stars3').style.marginTop = (-1 * (scrollTop/2)) + "px";
       }
 
-    //   window.onmousemove = function(event){
-    //     var x = event.clientX;
-    //     var y = event.clientY; 
-    //     var win_x = window.innerWidth / 2;
-    //     var win_y = window.innerHeight / 2;
+      window.onmousemove = function(event){
+        var x = event.clientX;
+        var win_x = window.innerWidth / 2;
         
-    //     document.getElementById('stars').style.marginTop = (-1 * ((y - win_y)/12)) + "px";
-    //     document.getElementById('stars2').style.marginTop = (-1 * ((y - win_y)/8)) + "px";
-    //     document.getElementById('stars3').style.marginTop = (-1 * ((y - win_y)/4)) + "px";
-    //     document.getElementById('stars').style.marginLeft = (-1 * ((x - win_x)/12)) + "px";
-    //     document.getElementById('stars2').style.marginLeft = (-1 * ((x - win_x)/8)) + "px";
-    //     document.getElementById('stars3').style.marginLeft = (-1 * ((x - win_x)/4)) + "px";
+        document.getElementById('stars').style.marginLeft = (-1 * ((x - win_x)/12)) + "px";
+        document.getElementById('stars2').style.marginLeft = (-1 * ((x - win_x)/8)) + "px";
+        document.getElementById('stars3').style.marginLeft = (-1 * ((x - win_x)/4)) + "px";
 
-    //   }
+      }
       
       $(function(){
         // Detect window scroll and update navbar
