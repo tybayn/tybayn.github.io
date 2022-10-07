@@ -1,0 +1,54 @@
+<head>
+    <style>
+        /* inViewport */
+        [data-inviewport] {
+            height:100%;
+            text-align:right; 
+            font-weight: bold;
+            background-color: #d1d1d1;
+            color: #000;
+        }
+
+        [data-inviewport="scale-in"] { 
+            transition: 2s;
+            transform: scaleX(0.1);
+            transform-origin: 0;
+        }
+        [data-inviewport="scale-in"].is-inViewport { 
+            transform: scaleX(1);
+        }
+
+        .bar {
+            height:50px;
+            background: #000;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 1000px;">stuff</div>
+
+    <div class="bar">
+        <div data-inviewport="scale-in" style="width: 90%;"></div>
+    </div>
+    <div class="bar">
+        <div data-inviewport="scale-in" style="width: 50%;"></div>
+    </div>
+
+    <script>
+        const inViewport = (entries, observer) => {
+            entries.forEach(entry => {
+                entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
+            });
+        };
+
+        const Obs = new IntersectionObserver(inViewport);
+        const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+
+        // Attach observer to every [data-inviewport] element:
+        const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
+        ELs_inViewport.forEach(EL => {
+            Obs.observe(EL, obsOptions);
+        });
+    </script>
+</body>

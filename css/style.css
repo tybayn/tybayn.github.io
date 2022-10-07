@@ -57,6 +57,26 @@ a:focus {
   margin-bottom: 50px;
 }
 
+[data-inviewport] {
+  height:100%;
+  text-align:right; 
+  font-weight: bold;
+  background-color: #d1d1d1;
+  color: #d1d1d1;
+  border-radius: 4px;
+  padding-right: 4px;
+}
+
+[data-inviewport="bar-fill"] { 
+  transition: 1s;
+  transform: scaleX(0);
+  transform-origin: 0;
+}
+[data-inviewport="bar-fill"].is-inViewport { 
+  transform: scaleX(1);
+  color:#000;
+}
+
 .skill_bar{
   margin: 0px 15px;
   background-color: #333;
@@ -100,6 +120,7 @@ a.resume_button{
   color: initial;
 
   padding:10px;
+  margin-right: 20px;
   border:None;
   border-radius: 10px;
   width: 20%; 
