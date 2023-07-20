@@ -53,8 +53,9 @@ a:focus {
 .tile{
   background-color: #d1d1d1;
   padding: 30px 0px;
-  border-radius: 30px;
-  margin-bottom: 50px;
+  border-radius: 10px;
+  margin: 0px 10px 10px 10px;
+  max-width: calc(33.333333% - 20px) !important;
 }
 
 [data-inviewport] {
@@ -89,6 +90,11 @@ a:focus {
   color: #000;
 }
 
+.project_buttons{
+  display: flex;
+  justify-content: center;
+}
+
 a.project_button{
   background-color: rgb(175, 175, 175);
   -webkit-appearance: button;
@@ -99,7 +105,7 @@ a.project_button{
   color: initial;
 
   padding:10px;
-  margin-right: 20px;
+  margin: 10px;
   border:None;
   border-radius: 10px;
   width: 20%; 
@@ -357,6 +363,12 @@ a.project_button:hover , a.resume_button:hover{
 #profile{
   max-width: 256px;
   width: 80%;
+}
+
+#project_img{
+  max-width: 150px;
+  width: 33%;
+  padding-bottom: 20px;
 }
 
 #software{
