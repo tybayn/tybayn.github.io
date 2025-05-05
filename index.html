@@ -85,6 +85,26 @@
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
     <script>
+      window.addEventListener("load", function() {
+        setTimeout(() => {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          let sfield1 = []
+          let sfield2 = []
+          let sfield3 = []
+          for(let i = 0; i < width/5; i++){
+              sfield1.push(`${Math.floor(Math.random() * (width*2))-Math.round(width/2)}px ${Math.floor(Math.random() * (height*2))-Math.round(height/2)}px 2px #FFF`)
+              sfield1.push(`${Math.floor(Math.random() * (width*2))-Math.round(width/2)}px ${Math.floor(Math.random() * (height*2))-Math.round(height/2)}px 2px #FFF`)
+              sfield2.push(`${Math.floor(Math.random() * (width*2))-Math.round(width/2)}px ${Math.floor(Math.random() * (height*2))-Math.round(height/2)}px 2px #FFF`)
+              sfield3.push(`${Math.floor(Math.random() * (width*2))-Math.round(width/2)}px ${Math.floor(Math.random() * (height*2))-Math.round(height/2)}px 2px #FFF`)
+          }
+          document.getElementById("stars").style.setProperty("--starfield",sfield1.join(', '))
+          document.getElementById("stars2").style.setProperty("--starfield2",sfield2.join(', '))
+          document.getElementById("stars3").style.setProperty("--starfield3",sfield3.join(', '))
+        }, 100);
+          
+      });
+
       window.onscroll = function() {
         var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
         document.getElementById('stars').style.marginTop = (-1 * (scrollTop/4)) + "px";
